@@ -9,15 +9,13 @@ topoPagina('Todos os produtos', 'Loja', 'f-raio');
   <div class="loja">
     <form class="filtros" id="filtros" role="search" aria-label="Filtros de produtos">
       <h2 class="filtros__titulo">Filtrar</h2>
+      <!-- A busca por nome fica so na barra do topo; este campo so carrega o termo ?busca= para a consulta. -->
+      <input type="hidden" name="busca" value="">
       <button class="filtros__toggle" type="button" id="filtros-toggle" aria-expanded="false" aria-controls="filtros-corpo" hidden>
         <span>Filtros</span><span class="filtros__badge" id="filtros-ativos" hidden>0</span>
       </button>
       <div class="filtros__corpo" id="filtros-corpo">
 
-      <div class="campo">
-        <label for="f-busca">Buscar</label>
-        <input id="f-busca" name="busca" type="search" placeholder="Nome do produto" maxlength="80">
-      </div>
       <div class="campo">
         <label for="f-categoria">Categoria</label>
         <select id="f-categoria" name="categoria">

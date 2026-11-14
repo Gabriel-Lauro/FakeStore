@@ -16,6 +16,9 @@
     CAMPOS.forEach((nome) => {
       if (form.elements[nome]) form.elements[nome].value = q.get(nome) || '';
     });
+    // A busca por nome fica so na barra do topo: mostra ali o termo que veio na URL.
+    const buscaTopo = document.getElementById('busca-topo');
+    if (buscaTopo) buscaTopo.value = q.get('busca') || '';
     return Math.max(1, parseInt(q.get('pagina'), 10) || 1);
   }
 
@@ -79,6 +82,9 @@
   }
 
   function ir(pagina) {
+    // Usa o que estiver escrito na barra do topo, mesmo que ainda nao tenha sido enviado.
+    const buscaTopo = document.getElementById('busca-topo');
+    if (buscaTopo && form.elements.busca) form.elements.busca.value = buscaTopo.value;
     const q = consultaAtual(pagina).toString();
     history.pushState(null, '', window.location.pathname + (q ? '?' + q : ''));
     carregar(pagina);
@@ -88,6 +94,10 @@
 
   function limpar() {
     form.reset();
+    // Campo oculto nao e zerado pelo reset(); limpa a busca dele e a da barra do topo.
+    if (form.elements.busca) form.elements.busca.value = '';
+    const buscaTopo = document.getElementById('busca-topo');
+    if (buscaTopo) buscaTopo.value = '';
     ir(1);
   }
 
@@ -143,7 +153,7 @@
 
   function atualizarBadge() {
     if (!badge) return;
-    const n = CAMPOS.filter((nome) => (form.elements[nome]?.value || '').trim() !== '').length;
+    const n = CAMPOS.filter((nome) => nome !== 'busca' && (form.elements[nome]?.value || '').trim() !== '').length;
     badge.textContent = String(n);
     badge.hidden = n === 0;
   }
