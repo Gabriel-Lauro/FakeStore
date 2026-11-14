@@ -53,4 +53,4 @@ jobs:
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
-          curl -fsS -o /dev/null -w 'HTTP %{http_code}\n' --retry 5 --retry-delay 3 --retry-all-errors "http://$VPS_HOST/"
+          curl -fsS -o /dev/null -w 'HTTP %{http_code}\n' --retry 5 --retry-delay 3 --retry-all-errors "https://$VPS_HOST/"
