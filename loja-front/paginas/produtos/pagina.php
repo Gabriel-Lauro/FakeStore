@@ -9,6 +9,10 @@ topoPagina('Todos os produtos', 'Loja', 'f-raio');
   <div class="loja">
     <form class="filtros" id="filtros" role="search" aria-label="Filtros de produtos">
       <h2 class="filtros__titulo">Filtrar</h2>
+      <button class="filtros__toggle" type="button" id="filtros-toggle" aria-expanded="false" aria-controls="filtros-corpo" hidden>
+        <span>Filtros</span><span class="filtros__badge" id="filtros-ativos" hidden>0</span>
+      </button>
+      <div class="filtros__corpo" id="filtros-corpo">
 
       <div class="campo">
         <label for="f-busca">Buscar</label>
@@ -44,8 +48,11 @@ topoPagina('Todos os produtos', 'Loja', 'f-raio');
         </div>
       </div>
 
-      <button class="btn btn--escuro" type="submit">Aplicar filtros</button>
+      <div class="filtros__acoes">
+        <button class="btn btn--escuro" type="submit">Aplicar filtros</button>
       <button class="btn btn--branco" type="button" id="limpar-filtros">Limpar</button>
+      </div>
+      </div>
     </form>
 
     <div>

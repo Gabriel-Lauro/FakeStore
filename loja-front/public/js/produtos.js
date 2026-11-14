@@ -51,6 +51,7 @@
     const q = consultaAtual(pagina);
     mostrarCarregandoGrade(grade, 6);
     contagem.textContent = 'Carregando...';
+    atualizarBadge();
     paginacao.hidden = true;
     try {
       const dados = await api('/produtos' + (q.toString() ? '?' + q.toString() : ''));
@@ -81,6 +82,7 @@
     const q = consultaAtual(pagina).toString();
     history.pushState(null, '', window.location.pathname + (q ? '?' + q : ''));
     carregar(pagina);
+    if (toggle) abrirFiltros(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -132,6 +134,29 @@
       }
     }
     select.value = atual;
+  }
+
+  // Mobile: o painel de filtros fica recolhido; o botao mostra quantos filtros estao ativos.
+  // Em telas grandes o CSS ignora tudo isso e o painel aparece sempre aberto.
+  const toggle = document.getElementById('filtros-toggle');
+  const badge = document.getElementById('filtros-ativos');
+
+  function atualizarBadge() {
+    if (!badge) return;
+    const n = CAMPOS.filter((nome) => (form.elements[nome]?.value || '').trim() !== '').length;
+    badge.textContent = String(n);
+    badge.hidden = n === 0;
+  }
+
+  function abrirFiltros(abrir) {
+    form.classList.toggle('is-aberto', abrir);
+    toggle.setAttribute('aria-expanded', String(abrir));
+  }
+
+  if (toggle) {
+    toggle.hidden = false;
+    form.classList.add('filtros--colapsavel');
+    toggle.addEventListener('click', () => abrirFiltros(!form.classList.contains('is-aberto')));
   }
 
   form.addEventListener('submit', (ev) => {
