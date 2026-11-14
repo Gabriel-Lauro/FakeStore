@@ -101,9 +101,23 @@ ul {
   list-style: none;
 }
 
+/* Sem o clarao azul/cinza do toque no celular */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Anel de foco so para quem navega pelo teclado (Tab). No clique do mouse ou
+   no toque, botoes e links nao mostram o contorno azul. */
 :focus-visible {
   outline: 3px solid var(--azul);
   outline-offset: 3px;
+}
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+summary:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .container {
