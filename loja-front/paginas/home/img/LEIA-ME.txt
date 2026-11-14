@@ -1,0 +1,21 @@
+IMAGENS DA HOME (colocadas à mão)
+=================================
+
+Todo bloco ROSA na home é um lugar de foto. O rosa mostra o nome do arquivo e a medida sugerida.
+
+Para trocar: salve a foto AQUI (nesta pasta, paginas/home/img) com exatamente o nome abaixo.
+Pode ser .jpg, .jpeg, .png, .webp, .avif ou .svg. Não precisa mexer em código nenhum:
+quando o arquivo existe, o rosa some sozinho. Atualize a página com Ctrl+F5.
+
+hero-principal    1200 x 560 px   Banner grande (lado esquerdo). Foto de tênis, fundo azul ou transparente combina.
+cat-calcados      440 x 440 px    Círculo da categoria Calçados (aparece cortado em círculo)
+cat-camisas       440 x 440 px    Círculo da categoria Camisas de time
+cat-fitness       440 x 440 px    Círculo da categoria Fitness
+cat-acessorios    440 x 440 px    Círculo da categoria Acessórios
+chamada-final     800 x 600 px    Bloco azul "Entre pro time" (lado direito)
+
+As marcas da home (ADIDAS, NIKE, NEW BALANCE, PUMA) usam os logos SVG marca-adidas.svg, marca-nike.svg, marca-new-balance.svg e marca-puma.svg desta pasta (sem o arquivo, aparece o nome em texto).
+Para mudar quais marcas aparecem: lista $marcasVitrine em paginas/home/pagina.php.
+
+Se você quiser usar uma imagem como fundo no CSS (paginas/home/estilo.css), o endereço é:
+  url('/assets/home/img/nome-do-arquivo.jpg')

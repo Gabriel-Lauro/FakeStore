@@ -1,0 +1,25 @@
+/* paginas/admin/produtos/estilo.css
+   CSS só desta página. Carrega depois do CSS padrão do site (base, componentes,
+   paginas e tipografia), então o que você escrever aqui vence os estilos padrão.
+   Enquanto este arquivo só tiver comentários, o navegador nem chega a pedir ele.
+   As imagens desta página ficam na pasta img/ ao lado. No PHP use
+   slotImagem('nome', ...) e no CSS use url('/assets/admin/produtos/img/arquivo.jpg'). */
+
+.admin-busca { display: flex; gap: 10px; margin-bottom: 10px; }
+.admin-busca input { flex: 1; min-width: 0; padding: 10px 12px; border: 2px solid var(--preto); font: inherit; background: var(--branco); }
+#admin-contagem { margin: 0 0 14px; }
+
+.miniatura {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--preto);
+  background: var(--placeholder, #eee);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.1;
+  color: var(--cinza-texto, #555);
+}
+.miniatura img { width: 100%; height: 100%; object-fit: cover; display: block; }

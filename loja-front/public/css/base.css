@@ -1,0 +1,194 @@
+/* ==========================================================
+   base.css — cores, fontes, reset
+   Estilo: neobrutalista (bordas pretas, sombras duras) com a
+   pegada de loja esportiva grande: tipografia pesada e inclinada,
+   fundo branco, azul elétrico no lugar do vermelho.
+   Sem pastel, sem formas decorativas. As fotos são colocadas
+   à mão em public/img (veja public/img/LEIA-ME.txt).
+   ========================================================== */
+
+:root {
+  /* Marca */
+  --azul: #0b3bff;
+  --azul-escuro: #061a9e;
+  --azul-gradiente: linear-gradient(135deg, #1d52ff 0%, #0b3bff 45%, #061a9e 100%);
+
+  /* Neutros */
+  --preto: #0a0a0a;
+  --carvao: #1a1a1c;
+  --branco: #ffffff;
+  --cinza: #f1f1f1;        /* campo de busca, fundos de input */
+  --cinza-linha: #d9d9d9;
+  --cinza-texto: #5a5a5a;
+
+  /* Placeholder de imagem: rosa-choque, impossível de esquecer */
+  --placeholder: #000000;
+
+  /* Estados (só funcionais) */
+  --erro: #d7263d;
+  --ok: #00b86b;
+  --alerta: #ffd400;
+
+  /* Borda e sombras duras */
+  --borda: 3px solid var(--preto);
+  --borda-fina: 2px solid var(--preto);
+  --sombra: 5px 5px 0 var(--preto);
+  --sombra-p: 3px 3px 0 var(--preto);
+  --sombra-g: 8px 8px 0 var(--preto);
+
+  /* Fontes */
+  --fonte-titulo: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --fonte-texto: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --largura: 1320px;
+  --espaco: clamp(16px, 3.5vw, 40px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--branco);
+  color: var(--preto);
+  font-family: var(--fonte-texto);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--espaco);
+}
+
+/* Título: condensado, pesado e inclinado */
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.92;
+}
+
+.so-leitor-de-tela {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.pular-conteudo {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  z-index: 200;
+  background: var(--branco);
+  border: var(--borda);
+  padding: 8px 14px;
+  font-weight: 700;
+}
+.pular-conteudo:focus {
+  top: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================
+   Seleção de texto: inverte (preto com letra branca). Em áreas
+   escuras ou azuis é o contrário: branco com letra preta.
+   ========================================================== */
+:root {
+  --sel-fundo: var(--preto);
+  --sel-texto: var(--branco);
+}
+
+::selection {
+  background: var(--sel-fundo);
+  color: var(--sel-texto);
+  text-shadow: none;
+}
+::-moz-selection {
+  background: var(--sel-fundo);
+  color: var(--sel-texto);
+  text-shadow: none;
+}
+
+.rodape,
+.faixa,
+.btn,
+.contador,
+.hero__painel,
+.colecao,
+.chamada,
+.pagina-topo,
+.menu-tela,
+.numero-cartao:nth-child(1),
+.numero-cartao:nth-child(2) {
+  --sel-fundo: var(--branco);
+  --sel-texto: var(--preto);
+}

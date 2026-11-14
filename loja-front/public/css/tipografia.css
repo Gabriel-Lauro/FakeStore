@@ -1,0 +1,127 @@
+/* ==========================================================
+   tipografia.css — suaviza o texto do site todo (carrega depois do
+   CSS padrão e antes do estilo.css de cada página).
+   Antes: tudo itálico, peso 900, caixa alta e sombra dura em
+   todo lugar. Agora: títulos grandes em caixa alta e peso firme,
+   mas retos; textos pequenos, rótulos e botões mais calmos.
+   Bordas e sombras das caixas continuam brutalistas.
+   O que é só de uma página (ex.: banner da home) fica no
+   paginas/<pagina>/estilo.css dela.
+   Para voltar ao visual anterior, é só tirar o link deste
+   arquivo em includes/cabecalho.php.
+   ========================================================== */
+
+/* ---------- Títulos grandes: retos, caixa alta, sem sombra ---------- */
+.titulo {
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  line-height: 1;
+}
+.pagina-topo__titulo {
+  text-shadow: none;
+}
+
+/* ---------- Títulos médios e de painel: retos, sem caixa alta ---------- */
+.sub-titulo,
+.filtros__titulo,
+.resumo__titulo,
+.estado__titulo,
+.rodape h3 {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.rodape h3 {
+  font-size: 20px;
+}
+
+/* ---------- Botões e busca ---------- */
+.btn,
+.busca button {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.btn {
+  font-size: 16px;
+}
+.btn--grande {
+  font-size: 19px;
+}
+.btn--pequeno {
+  font-size: 14px;
+}
+
+/* ---------- Selos, números, menu do celular ---------- */
+.card__selo {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+.numero-cartao__valor {
+  font-style: normal;
+  font-weight: 800;
+}
+.menu-tela__links a {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* ---------- Preços ---------- */
+.preco,
+.resumo__total {
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* ---------- Rótulos pequenos: sem caixa alta e sem espaçamento largo ---------- */
+.campo label,
+.opcoes__rotulo,
+.etiqueta,
+.selo-status,
+.selo-demo,
+.numero-cartao__rotulo,
+.menu-tela__rodape,
+.slot-img__medida {
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+.campo label,
+.opcoes__rotulo {
+  font-size: 14px;
+  font-weight: 600;
+}
+.produto__categoria {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+.tabela th,
+.tabela-itens th {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 13px;
+}
+
+/* ---------- Texto corrido e nomes ---------- */
+.topo__nav a {
+  font-weight: 500;
+}
+.card__nome {
+  font-weight: 500;
+}
+.item__nome,
+.linha-cartao__titulo,
+.menu-lateral a {
+  font-weight: 600;
+}
+
+/* ---------- Nome do arquivo no placeholder rosa ---------- */
+.slot-img__nome {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}

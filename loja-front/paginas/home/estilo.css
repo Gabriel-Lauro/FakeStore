@@ -1,0 +1,415 @@
+/* ==========================================================
+   paginas/home/estilo.css — CSS só da página inicial: banner, faixa,
+   categorias em círculo, coleções, destaques, benefícios e chamada final.
+   Carrega depois do CSS padrão do site. As fotos da home ficam em
+   paginas/home/img/ (veja o LEIA-ME.txt de lá).
+   ========================================================== */
+
+/* ---------- Banner principal ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: clamp(380px, 42vw, 560px);
+  border-bottom: var(--borda);
+  background: var(--azul-gradiente);
+}
+.hero__imagem {
+  position: relative;
+  min-height: 280px;
+  border-right: var(--borda);
+  overflow: hidden;
+}
+.hero__imagem .slot-img {
+  position: absolute;
+  inset: 0;
+}
+.hero__painel {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: clamp(28px, 4vw, 56px) clamp(20px, 3vw, 40px);
+  color: var(--branco);
+  text-align: center;
+}
+/* linhas-guia finas, como na referência */
+.hero__painel::before,
+.hero__painel::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.28);
+}
+.hero__painel::before { left: 0; right: 0; top: 32px; height: 1px; }
+.hero__painel::after  { top: 0; bottom: 0; right: 28px; width: 1px; }
+.hero__kicker {
+  position: relative;
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hero__titulo {
+  position: relative;
+  font-size: clamp(64px, 9vw, 132px);
+  text-shadow: 5px 5px 0 var(--preto);
+}
+.hero__oferta {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  line-height: 0.9;
+}
+.hero__oferta small {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+.hero__oferta strong {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(60px, 8vw, 112px);
+  text-transform: uppercase;
+  text-shadow: 5px 5px 0 var(--preto);
+}
+.hero .btn {
+  position: relative;
+  margin-top: 8px;
+  min-width: 220px;
+}
+
+/* ---------- Faixa rolando ---------- */
+.faixa {
+  overflow: hidden;
+  background: var(--preto);
+  color: var(--branco);
+  border-bottom: var(--borda);
+}
+.faixa__trilho {
+  display: flex;
+  width: max-content;
+  animation: faixa 32s linear infinite;
+}
+.faixa__item {
+  padding: 11px 26px;
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.faixa__item::after {
+  content: "/";
+  margin-left: 52px;
+  color: var(--azul);
+}
+@keyframes faixa {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  padding-top: 72px;
+}
+.secao__cabeca {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.secao__rotulo {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  background: var(--preto);
+  color: var(--branco);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.secao__titulo {
+  font-size: clamp(42px, 6vw, 76px);
+}
+.link-seta {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 4px solid var(--azul);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+.link-seta:hover {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+/* ---------- Categorias em círculo ---------- */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.categoria {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-decoration: none;
+}
+.categoria__foto {
+  width: min(100%, 220px);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: var(--borda);
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.categoria:hover .categoria__foto,
+.categoria:focus-visible .categoria__foto {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--azul);
+}
+.categoria__nome {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cinza-texto);
+}
+.categoria:hover .categoria__nome {
+  color: var(--azul);
+}
+
+/* ---------- Coleções (cards escuros) ---------- */
+.colecoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.colecao {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  background: var(--carvao);
+  color: var(--branco);
+  border: var(--borda);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 var(--azul);
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.colecao:hover,
+.colecao:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--azul);
+}
+.colecao__titulo {
+  font-size: clamp(30px, 3vw, 40px);
+  text-align: center;
+}
+.colecao__foto {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: var(--borda-fina);
+  border-radius: 8px;
+  background: var(--branco);
+}
+
+/* Cards de marca: o nome da marca em letras grandes, sem foto */
+.marca-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 190px;
+  padding: 22px;
+}
+.marca-card__nome {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(38px, 4.2vw, 60px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+/* Logo da marca: o SVG (paginas/home/img/marca-<slug>.svg) vira máscara e herda a cor do texto do card */
+.marca-card__logo {
+  display: block;
+  width: 100%;
+  height: 92px;
+  background-color: currentColor;
+  -webkit-mask: var(--logo) left center / contain no-repeat;
+  mask: var(--logo) left center / contain no-repeat;
+}
+.marca-card__acao {
+  align-self: flex-start;
+  padding-bottom: 2px;
+  border-bottom: 3px solid var(--azul);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- Benefícios ---------- */
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.beneficio {
+  padding-top: 20px;
+  border-top: 6px solid var(--preto);
+}
+.beneficio__numero {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--azul);
+}
+.beneficio__titulo {
+  margin: 6px 0 8px;
+  font-size: 38px;
+}
+.beneficio__texto {
+  max-width: 36ch;
+  color: var(--cinza-texto);
+}
+
+/* ---------- Chamada final ---------- */
+.chamada {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  background: var(--azul-gradiente);
+  color: var(--branco);
+  border: var(--borda);
+  box-shadow: var(--sombra-g);
+}
+.chamada__texto-bloco {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 18px;
+  padding: clamp(28px, 5vw, 64px);
+}
+.chamada__titulo {
+  max-width: 10ch;
+  font-size: clamp(54px, 8vw, 110px);
+  text-shadow: 5px 5px 0 var(--preto);
+}
+.chamada__texto {
+  max-width: 40ch;
+  font-size: 18px;
+}
+.chamada__imagem {
+  min-height: 260px;
+  border-left: var(--borda);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1024px) {
+  .categorias { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+  .colecoes { grid-template-columns: repeat(2, 1fr); }
+  .beneficios { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero__imagem { min-height: 300px; border-right: 0; border-bottom: var(--borda); }
+  .chamada { grid-template-columns: 1fr; }
+  .chamada__imagem { border-left: 0; border-top: var(--borda); }
+}
+@media (max-width: 700px) {
+  .secao { padding-top: 56px; }
+  .secao__cabeca { flex-direction: column; align-items: flex-start; }
+  .colecoes { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================
+   Texto mais calmo na home (era o tipografia.css do site todo).
+   Vem por último de propósito, para vencer as regras acima.
+   ========================================================== */
+.hero__titulo,
+.chamada__titulo,
+.hero__oferta strong {
+  text-shadow: none;
+}
+.hero__kicker,
+.hero__oferta small {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.hero__oferta strong {
+  font-style: normal;
+  font-weight: 800;
+}
+.colecao__titulo,
+.beneficio__titulo {
+  font-style: normal;
+  font-weight: 700;
+}
+.beneficio__numero {
+  font-style: normal;
+  font-weight: 800;
+}
+.link-seta {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+.faixa__item {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+}
+.categoria__nome {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.secao__rotulo {
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+
+/* ==========================================================
+   Imagens da home ainda vazias (arquivos .jpg/.png de 0 bytes):
+   fundo neutro no lugar da foto e sem o texto alternativo aparecendo.
+   Quando você trocar pelo arquivo real, isso não atrapalha em nada.
+   ========================================================== */
+.hero__imagem .slot-img,
+.categoria__foto .slot-img,
+.colecao__foto .slot-img,
+.chamada__imagem .slot-img {
+  background: var(--placeholder);
+  color: transparent;
+  font-size: 0;
+}

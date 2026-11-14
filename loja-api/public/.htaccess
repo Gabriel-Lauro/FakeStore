@@ -1,0 +1,7 @@
+# .htaccess da API — manda toda requisição que não é um arquivo real para o index.php (roteador único).
+# O RewriteBase é necessário porque a API roda sob o Alias /api.
+Options -Indexes
+RewriteEngine On
+RewriteBase /api/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]

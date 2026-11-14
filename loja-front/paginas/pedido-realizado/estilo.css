@@ -1,0 +1,6 @@
+/* paginas/pedido-realizado/estilo.css
+   CSS só desta página. Carrega depois do CSS padrão do site (base, componentes,
+   paginas e tipografia), então o que você escrever aqui vence os estilos padrão.
+   Enquanto este arquivo só tiver comentários, o navegador nem chega a pedir ele.
+   As imagens desta página ficam na pasta img/ ao lado. No PHP use
+   slotImagem('nome', ...) e no CSS use url('/assets/pedido-realizado/img/arquivo.jpg'). */

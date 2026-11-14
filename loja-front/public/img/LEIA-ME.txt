@@ -1,0 +1,18 @@
+IMAGENS COMPARTILHADAS DO SITE
+==============================
+
+Esta pasta (public/img) é só para imagens usadas em VÁRIAS páginas (ex.: logo, ícones).
+As imagens de cada página ficam na pasta da própria página:
+
+  paginas/home/img/       fotos da home (veja o LEIA-ME.txt de lá)
+  paginas/login/img/      imagens do login
+  paginas/<pagina>/img/   e assim por diante
+
+Como funciona o slotImagem('nome', 'Descrição', '800 x 600 px', 'texto alternativo'):
+  1. procura nome.(jpg|jpeg|png|webp|avif|svg) em paginas/<página que está aberta>/img/
+  2. se não achar, procura aqui em public/img/
+  3. se não achar em nenhum, mostra o bloco ROSA com o nome e a medida.
+
+As fotos dos PRODUTOS não ficam em nenhuma dessas pastas: vêm do banco
+(pasta loja-api/public/uploads). Produto sem foto aparece como bloco rosa escrito "sem imagem".
+Para trocar, use o painel admin.

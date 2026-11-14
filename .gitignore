@@ -1,0 +1,14 @@
+/loja-api/config/config.php
+/loja-api/public/uploads/*
+!/loja-api/public/uploads/.gitkeep
+!/loja-api/public/uploads/.htaccess
+
+# Segredos e arquivos locais
+.env
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
